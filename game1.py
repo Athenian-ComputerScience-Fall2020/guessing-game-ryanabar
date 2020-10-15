@@ -2,10 +2,6 @@
 Collaborators: None
 '''
 
-def rerun(): 
-	while True: 
-		guessing_game() 
-
 def guessing_game():        
     import random
 
@@ -14,8 +10,9 @@ def guessing_game():
     x = random.randint(low, high)
 
     try:
+        max_guess = int(input("How many guesses would you like to have? "))
         number_of_guesses = 0
-        while number_of_guesses < 1000000000000000000:
+        while number_of_guesses < max_guess:
             guess = int(input("Guess a number between your minimum and your maximum boundaries or press 'q' to quit: "))
             number_of_guesses = number_of_guesses + 1
             if guess == str("q"):
@@ -31,7 +28,13 @@ def guessing_game():
         print("Please enter a number.")
 
 if __name__ == '__main__': 
-    rerun() 
+    guessing_game()
+    while True:
+        a = input("Play again? Please say yes or no. ")
+        if a == "yes":
+            guessing_game()
+        if a == "no":
+            break
 
 
 
